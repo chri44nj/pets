@@ -1,0 +1,106 @@
+/***** GENERAL *****/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  font-family: "Acme", sans-serif;
+}
+
+a,
+p {
+  font-family: "Hind", sans-serif;
+}
+
+p,
+ul {
+  font-size: clamp(1rem, 1.2rem, 1.5rem);
+  list-style-type: none;
+  max-width: 75ch;
+}
+
+li {
+  font-size: clamp(1rem, 1rem, 1.2rem);
+  font-style: italic;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Colors */
+:root {
+  --primary: #393e41;
+  --secondary: #f1f2ee;
+  --accent: #0fa9a7;
+  --accent2: #f49f0a;
+}
+
+/***** SPECIFICS *****/
+.pet-options {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background-color: var(--primary);
+  padding-block: 5rem;
+  padding-inline: 10dvw;
+}
+
+.pet-display {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-block: 2rem;
+  padding-inline: 10dvw;
+}
+
+.pet {
+  color: var(--primary);
+}
+
+.pet-traits {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.get-container,
+.post-container,
+.patch-container,
+.delete-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--secondary);
+  width: 20dvw;
+  height: 25dvh;
+}

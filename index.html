@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pets</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <div class="pet-options">
+            <div class="get-container">
+                <button class="get-pets">Get dyrene!</button>
+            </div>
+            <div class="post-container">
+                <button class="post-pet">Post dyret!</button>
+            </div>
+            <div class="patch-container">
+                <button class="patch-pet">Patch dyret!</button>
+            </div>
+            <div class="delete-container">
+                <button class="delete-pet">Slet dyret!</button>
+                <input class="petID" type="number">
+            </div>
+        </div>
+
+        <div class="pet-display">
+            <template id="pet-template">
+                <div class="pet">
+                    <img class="pet-image" src="" alt="">
+                    <p class="pet-name"></p>
+                    <p class="pet-species"></p>
+                    <p class="pet-race"></p>
+                    <p class="pet-activityLevel"></p>
+                    <p class="pet-dob"></p>
+                    <p class="pet-isAlive"></p>
+                    <ul class="pet-traits"></ul>
+                    <p class="pet-id"></p>
+                </div>
+            </template>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
