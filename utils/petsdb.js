@@ -22,7 +22,7 @@ export async function postPets() {
 
   let bodyContent = JSON.stringify({
     name: "Tumle",
-    image: "golden.webp",
+    image: "pics/golden.webp",
     species: "Cat",
     race: "Norwegian Forest Cat",
     dob: "2005-07-07",
@@ -38,7 +38,7 @@ export async function postPets() {
   });
 }
 
-export async function patchPets() {
+export async function patchPets(id) {
   let headersList = {
     apikey: petsapikey,
     "Content-Type": "application/json",
@@ -54,14 +54,11 @@ export async function patchPets() {
     isAlive: false,
   });
 
-  let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/pets?id=eq.4", {
+  let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/pets?id=eq." + id, {
     method: "PATCH",
     body: bodyContent,
     headers: headersList,
   });
-
-  let data = await response.json();
-  return data;
 }
 
 export async function deletePets(id) {

@@ -80,6 +80,7 @@ svg {
   grid-template-columns: repeat(4, 1fr);
   padding-block: 2rem;
   padding-inline: 10dvw;
+  gap: 1rem;
 }
 
 .pet {

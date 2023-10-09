@@ -13,7 +13,6 @@ async function init() {
 
   const petDisplay = document.querySelector(".pet-display");
   const petTemplate = document.querySelector("#pet-template").content;
-
   petDisplay.innerHTML = "";
 
   pets.forEach((pet) => {
@@ -42,13 +41,11 @@ async function init() {
 
     const petTraits = petClone.querySelector(".pet-traits");
     petTraits.textContent = "Traits: ";
-    if (pet.traits && pet.traits.length > 0) {
-      pet.traits.forEach((trait) => {
-        const specificTrait = document.createElement("li");
-        specificTrait.textContent = trait + ",";
-        petTraits.appendChild(specificTrait);
-      });
-    }
+    pet.traits.forEach((trait) => {
+      const specificTrait = document.createElement("li");
+      specificTrait.textContent = trait + ",";
+      petTraits.appendChild(specificTrait);
+    });
 
     const petID = petClone.querySelector(".pet-id");
     petID.textContent = "Unique ID: " + pet.id;
@@ -66,10 +63,18 @@ document.querySelector(".post-pet").addEventListener("click", async () => {
   init();
 });
 
+/* Patch Pet */
+
+document.querySelector(".patch-pet").addEventListener("click", async () => {
+  const patchPetIDInput = document.querySelector(".patchPetID").value;
+  await patchPets(patchPetIDInput);
+  init();
+});
+
 /* Delete Pet */
 
 document.querySelector(".delete-pet").addEventListener("click", async () => {
-  const petIDInput = document.querySelector(".petID").value;
-  await deletePets(petIDInput);
+  const deletePetIDInput = document.querySelector(".deletePetID").value;
+  await deletePets(deletePetIDInput);
   init();
 });
