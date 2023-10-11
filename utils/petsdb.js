@@ -14,24 +14,24 @@ export async function getPets() {
   return data;
 }
 
-export async function postPets() {
+export async function postPets(petName, petImage, petSpecies, petRace) {
   let headersList = {
     apikey: petsapikey,
     "Content-Type": "application/json",
   };
 
   let bodyContent = JSON.stringify({
-    name: "Tumle",
-    image: "pics/golden.webp",
-    species: "Cat",
-    race: "Norwegian Forest Cat",
+    name: petName,
+    image: "pics/" + petImage + ".webp",
+    species: petSpecies,
+    race: petRace,
     dob: "2005-07-07",
     traits: ["Funny", "The Queen", "Aggressive"],
     activityLevel: 2,
     isAlive: false,
   });
 
-  let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/pets", {
+  let response = await fetch(petsurl + "pets", {
     method: "POST",
     body: bodyContent,
     headers: headersList,
@@ -45,16 +45,17 @@ export async function patchPets(id) {
   };
 
   let bodyContent = JSON.stringify({
-    name: "Tumlekatten",
-    species: "Cat",
-    race: "Norwegian Forest Cat",
+    image: "pics/squirrel.jpg",
+    name: "Lille Egern",
+    species: "Giraf",
+    race: "Eigilmusens Dyr",
     dob: "2005-07-07",
     traits: ["Funny", "Dronningen", "Aggressive"],
     activityLevel: 3,
     isAlive: false,
   });
 
-  let response = await fetch("https://cxcqsukrslfnrywvkkml.supabase.co/rest/v1/pets?id=eq." + id, {
+  let response = await fetch(petsurl + "pets?id=eq." + id, {
     method: "PATCH",
     body: bodyContent,
     headers: headersList,

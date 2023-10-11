@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Pets</title>
 </head>
@@ -14,37 +17,70 @@
     </header>
 
     <main>
-        <div class="pet-options">
-            <div class="get-container">
-                <button class="get-pets">Get dyrene!</button>
-            </div>
-            <div class="post-container">
-                <button class="post-pet">Post dyret!</button>
-            </div>
-            <div class="patch-container">
-                <button class="patch-pet">Patch dyret!</button>
-                <input class="patchPetID" type="number">
-            </div>
-            <div class="delete-container">
-                <button class="delete-pet">Slet dyret!</button>
-                <input class="deletePetID" type="number">
-            </div>
-        </div>
+        <section class="pet-display-grid">
+            <article class="pet-forms">
+                <div class="pet-categories">
+                    <p class="category cat-add" data-value="post-container">Add</p>
+                    <p class="category cat-alter" data-value="patch-container">Alter</p>
+                    <p class="category cat-delete" data-value="delete-container">Delete</p>
+                    <p class="category cat-hide" data-value="hide-containers">Hide</p>
+                </div>
 
-        <div class="pet-display">
+                <div class="pet-options">
+                    <form class="post-container form">
+                        <label for="post-pet-name">Name of pet</label>
+                        <p id="name-hint">Your pet must have a name.</p>
+                        <input name="pet-post" id="post-pet-name" aria-describedby="name-hint" type="text" required>
+                        <label for="post-pet-image">Image URL of pet</label>
+                        <input name="pet-post" id="post-pet-image" type="text">
+                        <label for="post-pet-species">Species of pet</label>
+                        <input name="pet-post" id="post-pet-species" type="text">
+                        <label for="post-pet-race">Race of pet</label>
+                        <input name="pet-post" id="post-pet-race" type="text">
+                        <label for="post-pet-activity-level">Activity level of pet</label>
+                        <input name="pet-post" id="post-pet-activity-level" type="text">
+                        <label for="post-pet-traits">Traits of pet</label>
+                        <input name="pet-post" id="post-pet-traits" type="text">
+                        <label for="post-pet-dob">Date of Birth of pet</label>
+                        <input name="pet-post" id="post-pet-dob" type="date">
+                        <button name="pet-post" class="post-pet-race">Add pet</button>
 
-        </div>
+                    </form>
+                    <form class="patch-container form">
+                        <label for="patch-pet-id">Unique ID of pet</label>
+                        <input name="pet-patch" id="patch-pet-id" type="number">
+                        <button name="pet-patch" class="patch-pet">Alter pet</button>
+                    </form>
+                    <form class="delete-container form">
+                        <label for="deletePetID">Unique ID of pet</label>
+                        <input name="pet-delete" id="deletePetID" type="number">
+                        <button name="pet-delete" class="delete-pet">Delete pet</button>
+                    </form>
+                </div>
+
+                <div class="get-container">
+                    <button class="display-pets">Display pets</button>
+                </div>
+            </article>
+            <div class="pet-display-container">
+                <h1>Your pets</h1>
+                <div class="pet-display">
+                </div>
+            </div>
+        </section>
+
+
         <template id="pet-template">
             <div class="pet">
                 <img class="pet-image" src="" alt="">
-                <p class="pet-name"></p>
-                <p class="pet-species"></p>
-                <p class="pet-race"></p>
-                <p class="pet-activityLevel"></p>
-                <p class="pet-dob"></p>
-                <p class="pet-isAlive"></p>
-                <ul class="pet-traits"></ul>
-                <p class="pet-id"></p>
+                <p>Name: <span class="pet-name"></span></p>
+                <p>Species: <span class="pet-species"></span></p>
+                <p>Race: <span class="pet-race"></span></p>
+                <p>Activity Level: <span class="pet-activityLevel"></span></p>
+                <ul>Traits: <span class="pet-traits"></span></ul>
+                <p>Date of Birth: <span class="pet-dob"></span></p>
+                <p>Alive: <span class="pet-isAlive"></span></p>
+                <p>Unique ID: <span class="pet-id"></span></p>
             </div>
         </template>
     </main>
