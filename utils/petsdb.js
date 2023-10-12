@@ -14,21 +14,21 @@ export async function getPets() {
   return data;
 }
 
-export async function postPets(petName, petImage, petSpecies, petRace) {
+export async function postPets(petName, petImage, petSpecies, petRace, petActivityLevel, petTraits) {
   let headersList = {
     apikey: petsapikey,
     "Content-Type": "application/json",
   };
-
+  const traitsArray = petTraits.split(" + ").map((trait) => trait.trim());
   let bodyContent = JSON.stringify({
     name: petName,
     image: "pics/" + petImage + ".webp",
     species: petSpecies,
     race: petRace,
+    activityLevel: petActivityLevel,
+    traits: traitsArray,
     dob: "2005-07-07",
-    traits: ["Funny", "The Queen", "Aggressive"],
-    activityLevel: 2,
-    isAlive: false,
+    isAlive: true,
   });
 
   let response = await fetch(petsurl + "pets", {
@@ -45,7 +45,7 @@ export async function patchPets(id) {
   };
 
   let bodyContent = JSON.stringify({
-    image: "pics/squirrel.jpg",
+    image: "squirrel",
     name: "Lille Egern",
     species: "Giraf",
     race: "Eigilmusens Dyr",

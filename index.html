@@ -22,48 +22,69 @@
                 <div class="pet-categories">
                     <p class="category cat-add" data-value="post-container">Add</p>
                     <p class="category cat-alter" data-value="patch-container">Alter</p>
-                    <p class="category cat-delete" data-value="delete-container">Delete</p>
+                    <p class="category cat-delete" data-value="delete-container">Remove</p>
                     <p class="category cat-hide" data-value="hide-containers">Hide</p>
                 </div>
 
                 <div class="pet-options">
                     <form class="post-container form">
-                        <label for="post-pet-name">Name of pet</label>
+                        <h3>Add a pet to your collection!</h3>
+                        <label for="post-pet-name">Name</label>
                         <p id="name-hint">Your pet must have a name.</p>
                         <input name="pet-post" id="post-pet-name" aria-describedby="name-hint" type="text" required>
-                        <label for="post-pet-image">Image URL of pet</label>
+                        <label for="post-pet-image">Image URL</label>
                         <input name="pet-post" id="post-pet-image" type="text">
-                        <label for="post-pet-species">Species of pet</label>
-                        <input name="pet-post" id="post-pet-species" type="text">
-                        <label for="post-pet-race">Race of pet</label>
-                        <input name="pet-post" id="post-pet-race" type="text">
-                        <label for="post-pet-activity-level">Activity level of pet</label>
+                        <label for="post-pet-species-race">Species + race</label>
+                        <input name="pet-post" id="post-pet-species-race" type="text" placeholder="species + race">
+                        <label for="post-pet-activity-level">Activity level</label>
                         <input name="pet-post" id="post-pet-activity-level" type="text">
-                        <label for="post-pet-traits">Traits of pet</label>
-                        <input name="pet-post" id="post-pet-traits" type="text">
-                        <label for="post-pet-dob">Date of Birth of pet</label>
+                        <label for="post-pet-traits">Traits</label>
+                        <input name="pet-post" id="post-pet-traits" type="text" placeholder="trait + trait2 + trait3...">
+                        <label for="post-pet-dob">Date of Birth</label>
                         <input name="pet-post" id="post-pet-dob" type="date">
-                        <button name="pet-post" class="post-pet-race">Add pet</button>
+                        <button name="pet-post" class="post-pet">Add pet</button>
 
                     </form>
                     <form class="patch-container form">
-                        <label for="patch-pet-id">Unique ID of pet</label>
-                        <input name="pet-patch" id="patch-pet-id" type="number">
+                        <h3>Alter a pet in your collection!</h3>
+                        <label for="patch-pet-id">Unique ID</label>
+                        <p id="alter-id-hint">Enter the ID of the pet you wish to alter.</p>
+                        <input name="pet-patch" id="patch-pet-id" type="number" aria-describedby="alter-id-hint">
+                        <label for="patch-pet-name">Name</label>
+                        <input name="pet-patch" id="patch-pet-name" type="text" required>
+                        <label for="patch-pet-image">Image URL</label>
+                        <input name="pet-patch" id="patch-pet-image" type="text">
+                        <label for="patch-pet-species-race">Species + race</label>
+                        <input name="pet-patch" id="patch-pet-species-race" type="text" placeholder="species + race">
+                        <label for="patch-pet-activity-level">Activity level</label>
+                        <input name="pet-patch" id="patch-pet-activity-level" type="text">
+                        <label for="patch-pet-traits">Traits</label>
+                        <input name="pet-patch" id="patch-pet-traits" type="text" placeholder="trait + trait2 + trait3...">
+                        <label for="patch-pet-dob">Date of Birth</label>
+                        <input name="pet-patch" id="patch-pet-dob" type="date">
+
+
+
                         <button name="pet-patch" class="patch-pet">Alter pet</button>
                     </form>
                     <form class="delete-container form">
-                        <label for="deletePetID">Unique ID of pet</label>
-                        <input name="pet-delete" id="deletePetID" type="number">
-                        <button name="pet-delete" class="delete-pet">Delete pet</button>
+                        <h3>Remove a pet from your collection!</h3>
+                        <label for="deletePetID">Unique ID</label>
+                        <p id="remove-id-hint">Enter the ID of the pet you wish to remove.</p>
+                        <input name="pet-delete" id="deletePetID" type="number" aria-describedby="remove-id-hint">
+                        <button name="pet-delete" class="delete-pet">Remove pet</button>
                     </form>
                 </div>
 
-                <div class="get-container">
-                    <button class="display-pets">Display pets</button>
-                </div>
+
             </article>
             <div class="pet-display-container">
-                <h1>Your pets</h1>
+                <div class="pet-display-heading">
+                    <h1>Your pets</h1>
+                    <div class="get-container">
+                        <button class="display-pets">Display pets</button>
+                    </div>
+                </div>
                 <div class="pet-display">
                 </div>
             </div>

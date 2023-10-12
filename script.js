@@ -14,6 +14,14 @@ window.onload = (event) => {
   formContainers.forEach((container) => {
     container.style.display = "none";
     catHide.style.backgroundColor = "var(--accent2)";
+
+    if (petDisplay.innerHTML.trim() === "") {
+      displayPetsButton.style.backgroundColor = "var(--accent2)";
+      init();
+    } else {
+      displayPetsButton.style.backgroundColor = "var(--accent";
+      petDisplay.innerHTML = "";
+    }
   });
 };
 
@@ -82,7 +90,6 @@ async function init() {
 
     const petID = petClone.querySelector(".pet-id");
     petID.textContent = pet.id;
-
     petDisplay.appendChild(petClone);
   });
 
@@ -105,10 +112,14 @@ displayPetsButton.addEventListener("click", () => {
 document.querySelector(".post-pet").addEventListener("click", async () => {
   const postPetName = document.querySelector("#post-pet-name").value;
   const postPetImage = document.querySelector("#post-pet-image").value;
-  const postPetSpecies = document.querySelector("#post-pet-species").value;
-  const postPetRace = document.querySelector("#post-pet-race").value;
+  const postPetSpeciesRace = document.querySelector("#post-pet-species-race").value;
+  const speciesRaceParts = postPetSpeciesRace.split(" + ");
+  const postPetSpecies = speciesRaceParts[0];
+  const postPetRace = speciesRaceParts[1];
+  const postPetActivityLevel = document.querySelector("#post-pet-activity-level").value;
+  const postPetTraits = document.querySelector("#post-pet-traits").value;
   if (postPetName.trim() !== "") {
-    await postPets(postPetName, postPetImage, postPetSpecies, postPetRace);
+    await postPets(postPetName, postPetImage, postPetSpecies, postPetRace, postPetActivityLevel, postPetTraits);
     init();
   }
 });
