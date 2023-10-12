@@ -197,3 +197,45 @@ label {
 input {
   padding: 0.25rem 0.5rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .pet-forms {
+    position: static;
+    width: 100dvw;
+    height: auto;
+    gap: 0;
+    padding-bottom: 0;
+  }
+
+  .post-container,
+  .patch-container,
+  .delete-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    padding-block: 2rem;
+  }
+
+  .pet-display-container {
+    margin-left: 0;
+  }
+
+  .pet-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+
+  .pet img {
+    height: 20%;
+  }
+
+  .pet-forms input {
+    width: 80dvw;
+  }
+}
